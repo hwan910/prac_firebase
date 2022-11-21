@@ -65,6 +65,7 @@
 
   <script>
     const db = firebase.firestore();
+    const storage = firebase.storage();
     db.collection('product').get().then((결과) => {
       결과.forEach((doc) => {
         console.log(doc.data());

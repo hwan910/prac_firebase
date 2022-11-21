@@ -65,6 +65,7 @@
 
     <script>
         const db = firebase.firestore();
+        const storage = firebase.storage();
         const storageRef = firebase.storage().ref();
         $('#send').click(() => {
             var file = document.querySelector('#image').files[0];
@@ -73,6 +74,10 @@
                 console.log('업로드 완료');
             }).catch((err) => {
                 console.log('에러발생..');
+            })
+            const imgRef = storage().ref(storage,'/image')
+            storage.uploadBytes(imgRef, file).then(() => {
+                alert('저장완료')
             })
 
             const 저장할거 = {
